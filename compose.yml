@@ -1,0 +1,33 @@
+services:
+  postgre_db:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: andrew
+      POSTGRES_PASSWORD:
+      POSTGRES_DB: mydatabase
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+  lib_app:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgre_db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://springservice-postgre_db-1:5432/mydatabase
+      SPRING_DATASOURCE_USERNAME: andrew
+      SPRING_DATASOURCE_PASSWORD:
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  db_data:
