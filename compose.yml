@@ -5,7 +5,7 @@ services:
       - "5432:5432"
     environment:
       POSTGRES_USER: andrew
-      POSTGRES_PASSWORD:
+      POSTGRES_PASSWORD: 1783Ap!
       POSTGRES_DB: mydatabase
     volumes:
       - db_data:/var/lib/postgresql/data
@@ -21,7 +21,7 @@ services:
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://springservice-postgre_db-1:5432/mydatabase
       SPRING_DATASOURCE_USERNAME: andrew
-      SPRING_DATASOURCE_PASSWORD:
+      SPRING_DATASOURCE_PASSWORD: 1783Ap!
     networks:
       - app-network
 

@@ -1,10 +1,16 @@
 package ru.innopolis.java.dto;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
+@Schema(description = "Сущность телевизора")
 public class TelevisionDTO {
+    @Schema(description = "Идентификатор", accessMode = Schema.AccessMode.READ_ONLY)
     private Long id;
 
+    @Schema(description = "Название телевизора")
     private String name;
 
+    @Schema(description = "Стоимость телевизора")
     private int price;
 
     public TelevisionDTO() {}
